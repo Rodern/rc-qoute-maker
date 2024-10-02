@@ -36,8 +36,14 @@ let p_list = $('.p-list')
 $(document).ready(function () {
     let bulletinId = getBId(location.href)
     if(bulletinId != '' && bulletinId != null) {
-        console.log(Bulletins)
         bulletin = Bulletins.find(x => x.id == bulletinId)
+        console.log(bulletin)
+        if(bulletin == undefined || bulletin == null) {
+            bulletin = {
+                id: makeId(),
+                bulletin: BulletinDefualts
+            }
+        }
     } else {
     }
     try {
@@ -313,18 +319,15 @@ $('#save_bulletin').click(()=>{
         bulletin.id = makeId()
     }
     let i = 0
-    if (Bulletins.length > 0) {
+    //if (Bulletins.length > 0) {
         Bulletins.forEach(b => {
             if (b.id == bulletin.id) {
                 Bulletins.splice(i, 1)
-                Bulletins.push(bulletin)
+                //Bulletins.push(bulletin)
             }
             i += 1
         })
-    }
-    else {
         Bulletins.push(bulletin)
-    }
     
     console.log(Bulletins)
     localStorage.setItem(BulletinsKey, toJsonString(Bulletins))
