@@ -36,6 +36,7 @@ let p_list = $('.p-list')
 $(document).ready(function () {
     let bulletinId = getBId(location.href)
     if(bulletinId != '' && bulletinId != null) {
+        console.log(Bulletins)
         bulletin = Bulletins.find(x => x.id == bulletinId)
     } else {
     }
@@ -64,7 +65,7 @@ bt_week_name.keyup(readBulletinInputValues)
 bt_week_number.keyup(readBulletinInputValues)
 bt_verse.keyup(readBulletinInputValues)
 bt_verse_name.keyup(readBulletinInputValues)
-select_version.keyup(readBulletinInputValues)
+select_version.change(readBulletinInputValues)
 bt_body.keyup(readBulletinInputValues)
 
 function readBulletinInputValues(){
@@ -109,7 +110,7 @@ function readBulletinInputValues(){
         
     }
 
-    select_version.val().trim()
+    bulletin.bulletin.bibleVersion = select_version.val().trim()
 
     renderBulletin()
 }
@@ -219,7 +220,7 @@ function renderBulletin() {
     print_topic.html(bulletin.bulletin.topic)
     print_date.html(new Date(bulletin.bulletin.date).toDateString())
     print_week_name.html(`Week ${bulletin.bulletin.weekNumber}: ${bulletin.bulletin.weekName}`)
-    print_verse.html(bulletin.bulletin.text)
+    print_verse.html(`"${bulletin.bulletin.text}"`)
     print_quotation.html(`${bulletin.bulletin.textName} (${bulletin.bulletin.bibleVersion})`)
     print_body.html(bulletin.bulletin.body)
 
@@ -312,18 +313,22 @@ $('#save_bulletin').click(()=>{
         bulletin.id = makeId()
     }
     let i = 0
-    Bulletins.forEach(b => {
-        if(b.id == bulletin.id){
-            Bulletins.splice(i, 1)
-            Bulletins.push(bulletin)
-        }
-        else {
-            Bulletins.push(bulletin)
-        }
-        i += 1
-    });
-    localStorage.setItem(BulletinsKey, JSON.stringify(Bulletins))
-    Bulletins = JSON.parse(localStorage.getItem(BulletinsKey))
+    if (Bulletins.length > 0) {
+        Bulletins.forEach(b => {
+            if (b.id == bulletin.id) {
+                Bulletins.splice(i, 1)
+                Bulletins.push(bulletin)
+            }
+            i += 1
+        })
+    }
+    else {
+        Bulletins.push(bulletin)
+    }
+    
+    console.log(Bulletins)
+    localStorage.setItem(BulletinsKey, toJsonString(Bulletins))
+    Bulletins = toJsonObject(localStorage.getItem(BulletinsKey))
     location.href = `${location.origin}/bulletin.html?bId=${bulletin.id}`
 })
 
@@ -391,7 +396,7 @@ function initBulletin() {
             i += 1
         }); 
 
-        localStorage.setItem(BulletinsKey, JSON.stringify(Bulletins))
-        Bulletins = JSON.parse(localStorage.getItem(BulletinsKey))
+        localStorage.setItem(BulletinsKey, toJsonString(Bulletins))
+        Bulletins = toJsonObject(localStorage.getItem(BulletinsKey))
     })
 }
