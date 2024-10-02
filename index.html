@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/jquery-3.6.1.min.js"></script>
+    <script src="js/config.js"></script>
+</head>
+<body>
+    <div class="nav-bar">
+        <a href="index.html" title="">Home</a>
+        <a href="bulletins.html" title="">Bulletins</a>
+        <a href="bulletin-config.html" title="">Config</a>
+    </div>
+    <div class="bulletin">
+        <div class="bulletin-preview" id="bulletinPreview">
+            <header class="bulletin-header">
+                <h3 id="print_header">Teach us to number our days</h3>
+                <h4><blockquote><i id="print_topic">"Prayer makes all thing possible"</i></blockquote></h4>
+                <h4><blockquote>
+                    <span class="date" id="print_date">20th Sept. 2024</span>
+                    &nbsp;|&nbsp;{<span class="week-name" id="print_week_name">Week 2: Righteousness</span>}
+                </blockquote></h4>
+                <p><blockquote>
+                    "<i class="verse" id="print_verse">
+                        The LORD rewarded me according to my righteousness; according to the cleanness of my hands hath he recompensed me.
+                    </i>"
+                    <span class="text-name" id="print_quotation">Ps 18:20</span>
+                </blockquote></p>
+            </header>
+            <main class="bulletin-body">
+                <section class="devotion" id="print_body">
+
+                </section>
+                <section class="prayer">
+                    <h4>Prayer:</h4>
+                    <ul class="prayer-points" id="print_points">
+                        <li>
+                            ahfljksklfjklsjdak sdjf sdaijf sdjfkja spfjiosa dfijsdaoi fsjda fsdiojfp oijds
+                        </li>
+                        <li>
+                            ahfljksklfjklsjdak sdjf sdaijf sdjfkja spfjiosa dfijsdaoi fsjda fsdiojfp oijds
+                        </li>
+                        <li>
+                            ahfljksklfjklsjdak sdjf sdaijf sdjfkja spfjiosa dfijsdaoi fsjda fsdiojfp oijds
+                        </li>
+                    </ul>
+                </section>
+            </main>
+            <footer class="bulletin-footer"  id="print_footer">
+                
+            </footer>
+        </div>
+
+<div class="config-form" id="bulletin_form">
+    <div class="form-group">
+        <label for="bt_header">Header Text</label>
+        <!-- <div class="sub-form-group">
+            <label for="select_color"><i>Choose color: </i></label>
+            <select name="select-color" id="select_color">
+                <option value="#1f1f1f" selected>Dark</option>
+                <option value="blue">Blue</option>
+                <option value="violet">Violet</option>
+                <option value="red">Red</option>
+                <option value="#1da851">Green</option>
+            </select>
+        </div> -->
+        <div type="text" contenteditable="true" placeholder="Name by name with in name as name" name="header"
+            id="bt_header" inputmode="verbatim">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="bt_topic">Topic</label>
+        <div type="text" contenteditable="true" placeholder="Name by name with in name as name" name="topic"
+            id="bt_topic">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="bt_date">Date</label>
+        <input type="date" name="date" id="bt_date">
+    </div>
+    <div class="form-group">
+        <label for="bt_week_name">Week Number & Name</label>
+        <div class="form-sub-group week-name-group">
+            <input type="number" name="week-number" id="bt_week_number" placeholder="4">
+            <input type="text" name="week-name" id="bt_week_name" placeholder="Righteousness">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="bt_verse">Verse(s)</label>
+        <div type="text" contenteditable="true" name="verse"
+            id="bt_verse">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="bt_verse_name">Quotation</label>
+        <div class="form-sub-group">
+            <input type="text" name="date" id="bt_verse_name" placeholder="Isa. 40:31">
+            <div class="sub-form-group">
+                <!-- <label for="select_version"><i>Choose select-version: </i></label> -->
+                <select name="select-version" id="select_version">
+                    <option value="1f1f1f#" selected>Dark</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="bt_body">Body</label>
+        <div type="text" contenteditable="true" name="body"
+            id="bt_body">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="bt_point">Add prayer point</label>
+        <div class="p-list">
+        </div>
+        <div class="form-sub-group">
+            <div type="text" contenteditable="true" name="point"
+                id="bt_point">
+            </div>
+            <button class="add" id="bt_add_point">Add</button>
+        </div>
+    </div>
+    <div class="form-group">
+        <button class="btn" id="save_bulletin">
+            Save
+        </button>
+    </div>
+</div>
+
+<div class="toolbar">
+    <select name="select-color" id="select_color">
+        <option value="#1f1f1f" selected>Dark</option>
+        <option value="#0000FF">Blue</option>
+        <option value="#8A2BE2">Violet</option>
+        <option value="#FF0000">Red</option>
+        <option value="#1da851">Green</option>
+        <option value="#FF4500">Orange</option>
+        <option value="#2F4F4F">Dark Slate Gray</option>
+        <option value="#800080">Purple</option>
+        <option value="#008080">Teal</option>
+        <option value="black">Black</option>
+        <option value="white">White</option>
+    </select>
+    <select onchange="formatText(this.value)">
+        <option value="bold">Bold</option>
+        <option value="italic">Italic</option>
+        <option value="underline">Underline</option>
+    </select>
+    <select onchange="formatText('formatBlock', this.value)">
+        <option value="h1">Heading 1</option>
+        <option value="h2">Heading 2</option>
+        <option value="h3">Heading 3</option>
+        <option value="h4">Heading 4</option>
+        <option value="h5">Heading 5</option>
+        <option value="h6">Heading 6</option>
+        <option value="p">Paragraph</option>
+    </select>
+    <select onchange="formatText('fontSize', this.value)">
+        <option value="1">Small</option>
+        <option value="3">Normal</option>
+        <option value="5">Large</option>
+        <option value="7">Huge</option><option value="12px">12px</option>
+        <option value="14px">14px</option>
+        <option value="16px">16px</option>
+        <option value="18px">18px</option>
+        <option value="20px">20px</option>
+        <option value="22px">22px</option>
+        <option value="24px">24px</option>
+    </select>
+    <select onchange="formatText('fontName', this.value)">
+        <option value="Arial">Arial</option>
+        <option value="Verdana">Verdana</option>
+        <option value="Helvetica">Helvetica</option>
+        <option value="Times New Roman">Times New Roman</option>
+        <option value="Georgia">Georgia</option>
+        <option value="Courier New">Courier New</option>
+        <option value="Trebuchet MS">Trebuchet MS</option>
+    </select>
+</div>
+
+        <!-- <div class="editor-container">
+            <div class="toolbar">
+                <button onclick="formatText('bold')"><b>B</b></button>
+                <button onclick="formatText('italic')"><i>I</i></button>
+                <button onclick="formatText('underline')"><u>U</u></button>
+                <button onclick="formatText('foreColor', 'red')" style="color: red;">A</button>
+                <button onclick="formatText('foreColor', 'blue')" style="color: blue;">A</button>
+                <button onclick="formatText('foreColor', 'green')" style="color: green;">A</button>
+            </div>
+            <div id="editor" contenteditable="true" class="editor"></div>
+        </div> -->
+    </div>
+    <script src="js/app.js"></script>
+    <script src="js/bulletin.js"></script>
+</body>
+</html>

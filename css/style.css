@@ -1,0 +1,351 @@
+:root {
+    --font-name: 'Times New Roman',
+        Times,
+        serif;
+}
+
+* {
+    margin: 0;
+    padding: 0%;
+    transition: 0.2s all ease-in-out;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100dvw;
+    height: auto;
+    margin: 0;
+    background-color: #1f1f1f;/* #f0f0f0; */
+    overflow: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.5rem;
+}
+
+h1, h2, h3 {
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: 1.3rem;
+}
+
+.nav-bar {
+    width: 100%;
+    height: 48px;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-block-end: 1.5rem;
+}
+.nav-bar a {
+    text-decoration: none;
+    color: #f9f9f9;
+    width: -webkit-fill-available;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav-bar a:hover {
+    background-color: #25d366;
+}
+.nav-bar a:active {
+    background-color: #1da851;
+}
+
+.b-nav-bar {
+    width: 80%;
+    margin-block-start: 1rem;
+    gap: 1rem;
+}
+.b-nav-bar a {
+    gap: .5rem;
+    font-weight: 600;
+    border-radius: 4px;
+}
+.b-nav-bar a:nth-of-type(2){
+    background-color: #25d366;
+}
+.b-nav-bar a svg {
+    width: 1.35rem;
+    stroke: white;
+    fill: white;
+}
+
+.bulletin {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+
+.bulletin-preview {
+    display: block;
+    width: 80%;
+    height: auto;
+    background-color: #ddd;
+    padding: 1.5rem 1.5rem;
+    max-width: 412px;
+    max-width: calc(360px - 1.5rem);
+}
+
+#print_body {
+    text-align: start;
+}
+
+.prayer {
+    padding-inline-start: 1.25rem;
+}
+
+.bulletin-header {
+    text-align: center;
+}
+
+.bulletin-header, .bulletin-body {
+    font-family: var(--font-name);
+}
+
+.bulletin-body {
+    margin-block: .75rem;hyphens: auto;
+        word-wrap: break-word;
+}
+
+.bulletin-footer {
+ text-align: center;
+ font-size: small;
+}
+
+.bf-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: .75rem;
+    flex-wrap: wrap;
+    margin-block-start: 1rem;
+}
+
+.bf-links .bf-link {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: .2rem;
+    justify-content: space-evenly;
+    align-items: center;
+    text-decoration: none;
+    color: #1da851;
+    fill: #1da851;
+    height: .75rem;
+}
+
+.bf-links .bf-link svg {
+    width: 1.25rem;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-around;
+    gap: .5rem;
+    flex-wrap: wrap;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #ddd;
+    position: fixed;
+    bottom: 0%;
+}
+
+.toolbar select {
+    padding: .25rem;
+    min-height: 2rem;
+    border-radius: 4px;
+}
+
+.toolbar button {
+    background-color: #25d366;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.toolbar button:hover {
+    background-color: #1da851;
+}
+
+.bulletins {
+    width: 80%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+}
+
+.bulletins a {
+    text-decoration: none;
+    color: #f9f9f9;
+    width: -webkit-fill-available;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem;
+    background-color: #2f4858;
+    border-radius: 4px;
+}
+
+.bulletins a:hover {
+    background-color: #25d366;
+}
+
+.bulletins a:hover .btn {
+    background-color: #2f4858;
+}
+
+.bulletins a:active {
+    background-color: #1da851;
+}
+.bulletins a .btn {
+    padding: .1rem;
+    fill: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    margin-block: auto;
+    z-index: 1;
+}
+
+/********** Config Page Styles - Start***********/
+.config-form {
+    width: 70%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+    margin-bottom: 6rem;
+    hyphens: auto;
+    word-wrap: break-word;
+    max-width: 600px;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+.form-group label {
+    font-size: medium;
+    font-weight: 600;
+    color: #ddd;
+    cursor: default;
+}
+.form-group input:focus-visible,
+.form-group input:focus-within,
+.form-group input:focus,
+.form-group div[type="text"]:focus-visible,
+.form-group div[type="text"]:focus-within,
+.form-group div[type="text"]:focus {
+    border: 1px solid #fff461;
+    outline: 1px solid #fff461;
+}
+.form-group input,
+.form-group div[type="text"] {
+    width: -webkit-fill-available;
+    min-height: 2rem;
+    padding-inline: .25rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+}
+.form-group div[type="text"] {
+    padding: .25rem;
+    overflow-y: auto;
+}
+.form-group button:active {
+    background-color: #1da851;
+}
+.form-group button, button {
+    padding: .75rem 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #25d366;
+    border: none;
+    border-radius: 4px;
+}
+.form-group .sub-form-group {
+    display: inline-flex;
+    justify-content: end;
+    gap: .2rem;
+    align-items: center;
+}
+.form-group .sub-form-group label {
+    font-weight: 500;
+    font-size: small;
+}
+.form-group .sub-form-group select {
+    padding: .1rem;
+    border-radius: 4px;
+}
+
+.form-group .form-sub-group {
+    display: inline-flex;
+    justify-content: end;
+    gap: .2rem;
+}
+.form-group .form-sub-group label {
+    font-weight: 500;
+    font-size: small;
+}
+.form-group .form-sub-group input{
+    min-width: 6rem;
+}
+.form-group .form-sub-group select {
+    padding: .25rem;
+    min-height: 2rem;
+    border-radius: 4px;
+}
+
+.p-list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    height: auto;
+    width: 100%;
+    gap: 2px;
+}
+.p-list .pl-p {
+    display: inline-flex;
+    justify-content: space-between;
+    background-color: #f9f9f9df;
+    padding: .5rem;
+    position: relative;
+    border-radius: 4px;
+    hyphens: auto;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.p-list .pl-p:hover {
+    background-color: #f9f9f9;
+}
+.p-list .pl-p .btn {
+    padding: .1rem;
+    fill: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    margin-block: auto;
+}
+
+/********** Config Page Styles - End ***********/
