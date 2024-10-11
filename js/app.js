@@ -38,9 +38,11 @@ $(document).ready(()=>{
         let headerInput = $('#b_header')
         let phoneInput = $('#b_phone')
         let emailInput = $('#b_email')
+        let blessingInput = $('#b_blessing')
         headerInput.html(BulletinDefualts.header)
         phoneInput.val(BulletinDefualts.phoneNumber)
         emailInput.val(BulletinDefualts.email)
+        blessingInput.val(BulletinDefualts.blessing)
         $('#select_color').change(function (e) { 
             e.preventDefault();
             formatText('foreColor', $('#select_color').val())
@@ -55,6 +57,7 @@ $('#save_config').click(() => {
     let headerInput = $('#b_header')
     let phoneInput = $('#b_phone')
     let emailInput = $('#b_email')
+    let blessingInput = $('#b_blessing')
 
     if (headerInput.html().trim() == null || headerInput.html().trim() == "") {
         alert("Error: Header is empty!")
@@ -68,9 +71,14 @@ $('#save_config').click(() => {
         alert("Error: Email is empty!")
         return;
     }
+    if (blessingInput.val() == null || blessingInput.val() == "") {
+        alert("Error: Blessing is empty!")
+        return;
+    }
     BulletinDefualts.header = headerInput.html()
     BulletinDefualts.phoneNumber = phoneInput.val()
     BulletinDefualts.email = emailInput.val()
+    BulletinDefualts.blessing = blessingInput.val()
     localStorage.setItem(BulletinDefualtsKey, toJsonString(BulletinDefualts))
     alert("Saved")
     location.reload()

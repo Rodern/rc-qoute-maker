@@ -20,9 +20,9 @@ let print_footer = $('#print_footer')
 
 let bt_header = $('#bt_header')
 let bt_topic = $('#bt_topic')
-let bt_date = $('#bt_date')
+/* let bt_date = $('#bt_date')
 let bt_week_number = $('#bt_week_number')
-let bt_week_name = $('#bt_week_name')
+let bt_week_name = $('#bt_week_name') */
 let bt_verse = $('#bt_verse')
 let bt_verse_name = $('#bt_verse_name')
 let select_version = $('#select_version')
@@ -65,10 +65,10 @@ function getBId(path) {
 
 bt_header.keyup(readBulletinInputValues)
 bt_topic.keyup(readBulletinInputValues)
-bt_date.keyup(readBulletinInputValues)
+/* bt_date.keyup(readBulletinInputValues)
 bt_date.change(readBulletinInputValues)
 bt_week_name.keyup(readBulletinInputValues)
-bt_week_number.keyup(readBulletinInputValues)
+bt_week_number.keyup(readBulletinInputValues) */
 bt_verse.keyup(readBulletinInputValues)
 bt_verse_name.keyup(readBulletinInputValues)
 select_version.change(readBulletinInputValues)
@@ -85,7 +85,7 @@ function readBulletinInputValues(){
     } catch (error) {
 
     }
-    try {
+    /* try {
         bulletin.bulletin.date = bt_date.val().trim()
     } catch (error) {
         
@@ -99,7 +99,7 @@ function readBulletinInputValues(){
         bulletin.bulletin.weekNumber = bt_week_number.val().trim()
     } catch (error) {
         
-    }
+    } */
     try {
         bulletin.bulletin.text = bt_verse.html().trim()
     } catch (error) {
@@ -176,9 +176,9 @@ function formatDate(date = new Date()) {
 function loadBulletinInputValues() {
     bt_header.html(bulletin.bulletin.header)
     bt_topic.html(bulletin.bulletin.topic)
-    bt_date.val(formatDate(new Date(bulletin.bulletin.date)))
-    bt_week_number.val(bulletin.bulletin.weekNumber)
-    bt_week_name.val(bulletin.bulletin.weekName)
+    //bt_date.val(formatDate(new Date(bulletin.bulletin.date)))
+    //bt_week_number.val(bulletin.bulletin.weekNumber)
+    //bt_week_name.val(bulletin.bulletin.weekName)
     bt_verse.html(bulletin.bulletin.text)
     bt_verse_name.val(bulletin.bulletin.textName)
     select_version.val(bulletin.bulletin.bibleVersion)
@@ -224,8 +224,8 @@ function renderBulletin() {
     bulletinPreview.attr("bt-id", bulletin.id);
     print_header.html(bulletin.bulletin.header)
     print_topic.html(bulletin.bulletin.topic)
-    print_date.html(new Date(bulletin.bulletin.date).toDateString())
-    print_week_name.html(`Week ${bulletin.bulletin.weekNumber}: ${bulletin.bulletin.weekName}`)
+    //print_date.html(new Date(bulletin.bulletin.date).toDateString())
+    //print_week_name.html(`Week ${bulletin.bulletin.weekNumber}: ${bulletin.bulletin.weekName}`)
     print_verse.html(`"${bulletin.bulletin.text}"`)
     print_quotation.html(`${bulletin.bulletin.textName} (${bulletin.bulletin.bibleVersion})`)
     print_body.html(bulletin.bulletin.body)
@@ -291,14 +291,14 @@ $('#save_bulletin').click(()=>{
         alert("Error: Topic is empty!")
         return
     }
-    if (bulletin.bulletin.weekNumber == null || bulletin.bulletin.weekNumber == '') {
+    /* if (bulletin.bulletin.weekNumber == null || bulletin.bulletin.weekNumber == '') {
         alert("Error: Week number is empty!")
         return
     }
     if (bulletin.bulletin.weekName == null || bulletin.bulletin.weekName == '') {
         alert("Error: Week name is empty!")
         return
-    }
+    } */
     if (bulletin.bulletin.text == null || bulletin.bulletin.text == '') {
         alert("Error: Verse is empty!")
         return
@@ -337,7 +337,8 @@ $('#save_bulletin').click(()=>{
 
 print_footer.html(readyFooter(BulletinDefualts));
 function readyFooter(bulletinDefualts){
-    return `For testimonies or more inquiries contact us via
+    return `<h4 class="blessing">${bulletin.bulletin.blessing}</h4>
+                For testimonies or more inquiries contact us via
                 <nav class="bf-links">
                     <a href="sms:${bulletinDefualts.phoneNumber};body=" class="bf-link" target="_blank" title="SMS">
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 48 48">

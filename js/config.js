@@ -3,7 +3,7 @@ BulletinsKey = "Bullettins",
  BulletinDefualtsKey = "BulletinDefualts"
 
 let BulletinDefualts = {
-    header: "Teach us to number our days",
+    header: "<font color=\"#800080\">Teach us </font>to number<font color=\"#8a2be2\"> our days</font>",
     topic: "",
     text: "",
     textName: "",
@@ -13,6 +13,7 @@ let BulletinDefualts = {
     weekName: "",
     body: "",
     prayerPoints: [],
+    blessing: "I bind myself to God!!!",
     phoneNumber: "677657735",
     email: "upperchamber20@gmail.com"
 }

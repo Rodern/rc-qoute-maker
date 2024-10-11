@@ -94,12 +94,30 @@ h3 {
     height: auto;
     background-color: #ddd;
     padding: 1.5rem 1.5rem;
-    max-width: 412px;
-    max-width: calc(360px - 1.5rem);
+    min-width: 412px;
+    max-width: 824px;
 }
 
 #print_body {
     text-align: start;
+}
+
+#print_header {
+    font-size: large;
+
+}
+
+.p-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.p-header .logo {
+    /* background-color: #1da851; */
+    width: clamp(50px, 5vw + 12px, 10vw);
+    /* height: 35px; */
 }
 
 .prayer {
@@ -122,6 +140,11 @@ h3 {
 .bulletin-footer {
  text-align: center;
  font-size: small;
+}
+
+.blessing {
+    font-family: var(--font-name);
+    text-transform: uppercase;
 }
 
 .bf-links {
