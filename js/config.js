@@ -3,7 +3,7 @@ BulletinsKey = "Bullettins",
  BulletinDefualtsKey = "BulletinDefualts"
 
 let BulletinDefualts = {
-    header: "<font color=\"#800080\">Teach us </font>to number<font color=\"#8a2be2\"> our days</font>",
+    header: "<font color=\"#8a2be2\">Teach us </font>to number<font color=\"#8a2be2\"> our days</font>",
     topic: "",
     text: "",
     textName: "",
